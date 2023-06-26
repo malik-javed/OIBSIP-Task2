@@ -1,0 +1,134 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio / Malik</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href=#heading>HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="/">SERVICES</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+
+        </nav>
+    </div>
+
+    <div id="heading">
+
+        <p>Web Developer</p>
+        <h1>Hey I'm <span>Malik Javed</span> From Lucknow</h1>
+        <!-- <div class="head-text">
+
+        </div> -->
+
+    </div>
+    <!-- ---------------ABOUT SECTION--------- -->
+
+    <div id="about">
+        <div class="about-img">
+            <img src="images/greybg.jpg" alt="">
+
+
+        </div>
+
+        <div class="about-main-text">
+            <h2>About Me</h2>
+            <p class="about-me-text">I am a positive, enthusiastic and
+                competent who, over the years, has
+                built up a diverse range of skills,
+                qualities and attributes that guarantee I
+                will perform highly in this role . I always
+                ensure my skills are kept up to date
+                within this rapidly changing industry</p>
+
+        </div>
+    </div>
+
+    <div id="contact">
+        <div class="contact-left">
+            <p>Contact ME</p>
+            <div class="contact-img">
+                <a href="https://www.facebook.com/" target="_blank"><img src="images/fb.png" alt=""></a>
+
+                <a href="https://www.instagram.com/malllikjaved_/" target="_blank"><img src="images/ig.png" alt=""></a>
+            </div>
+
+            <div class="cv">
+                <button class="btn">
+                    <a href="download/cv.pdf" download>Download CV</a>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="contact-right">
+
+            <div class="form">
+                <input type="text" name="myName" placeholder="Enter Your Name" id="name" class="inputs">
+                <input type="email" name="myEmail" placeholder="Enter Your Email" id="email" class="inputs">
+                <input type="number" name="myNumber" placeholder="Enter Your PhoneNo" id="number" class="inputs">
+                <input type="text" name="myFeedback" placeholder="Your FeedBack" id="feedback" class="inputs">
+
+                <button type="submit" class="inputs" id="sub" onclick="sendEmail()">SUBMIT</button>
+                
+                
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+        
+
+
+        
+
+        function sendEmail() {
+
+            // alert("hello");
+            Email.send({
+                SecureToken: "fcdcf382-737e-4efe-af7d-5c626ca8b694",
+
+                // Host: "smtp.elasticemail.com",
+                // Username: "websitemanager123400@gmail.com",
+                // Password: "fcdcf382-737e-4efe-af7d-5c626ca8b694",
+                To: "recievedm@gmail.com",
+                From: "websitemanager123400@gmail.com",
+                Subject: "New Request",
+                Body: `Name : <b>${document.getElementById("name").value} </b> <br>
+                    Email :<b>${document.getElementById("email").value} </b> <br>
+                    PhoneNumber :<b>${document.getElementById("number").value} </b> <br>
+                    Message :<b>${document.getElementById("feedback").value} </b>
+                
+                
+                `
+
+                // Body: "Name :"+document.getElementById("name").value+
+                // "Email :"+document.getElementById("email").value+
+                // "PhoneNumber :"+document.getElementById("number").value+
+                // "Message :"+document.getElementById("feedback").value
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+
+</body>
+
+</html>
